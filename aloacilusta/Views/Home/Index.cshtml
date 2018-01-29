@@ -1,0 +1,58 @@
+﻿@{
+    ViewBag.Title = "Anasyfa";
+
+}
+@{
+    List<aloacilusta.Controllers.HomeController.katInfo> katlist = (List<aloacilusta.Controllers.HomeController.katInfo>)ViewData["katlist"];
+}
+
+<div class="jumbotron">
+    <h2 style="font-family:'CentSchbkCyrill BT'; font-weight:bold;">ALO ACİL USTA</h2>
+    <br /><br /><br /><br />
+
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <a href="#"> <h4 class="aa">Uzman İş Danışmanlığı</h4></a>
+
+
+    </div>
+    <div class="col-md-4">
+        <a href="#" > <h4 class="aa">İş Koordinasyon</h4></a>
+
+    </div>
+    <div class="col-md-4">
+        <a href="#" > <h4 class="aa">iş Havuzu</h4></a>
+
+    </div>
+    <div class="col-md-4">
+        <a href="#" >  <h4 class="aa">Hizmet Talep Formu</h4></a>
+
+    </div>
+
+
+</div>
+<div class="menu_simple ">
+
+    @if (katlist != null)
+    {
+        foreach (aloacilusta.Controllers.HomeController.katInfo item in katlist)
+        {
+
+            <input type="button" value="@item.name.ToString()" />
+
+        }
+    }
+
+</div>
+
+<form class="searchbox_1" action="">
+    <select><option>lütfen il seçiniz</option></select>
+    <select><option>lütfen Kategori seçiniz</option></select>
+    <button type="button" class="location" value="search">Lokasyona Göre</button><br /><br />
+    <input type="search" class="search_1" placeholder="Arama" />
+    <button type="submit" class="submit_1" value="search">&nbsp;</button>
+
+
+</form>

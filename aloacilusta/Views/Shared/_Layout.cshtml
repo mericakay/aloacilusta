@@ -1,0 +1,81 @@
+﻿<!DOCTYPE html>
+<html>
+@{
+    List<aloacilusta.Controllers.HomeController.PatOBInfo> list = (List<aloacilusta.Controllers.HomeController.PatOBInfo>)ViewData["list"];
+}
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Alo Acil Usta</title>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+
+    <link href="~/Content/Site.css" rel="stylesheet" />
+
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+
+                </button>
+                <img width="40px;" height="40px;" src="~/images/logo.png" />  @Html.ActionLink("Alo Acil Usta", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+
+                    <li>@Html.ActionLink("Anasayfa", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Hakkımızda", "About", "Home")</li>
+                    <li>@Html.ActionLink("İltişim", "Contact", "Home")</li>
+                    <li>@Html.ActionLink("Usta /  Firma Kayıt", "Contact", "Home")</li>
+                    <li>@Html.ActionLink("Kullanım Koşulları", "Contact", "Home")</li>
+                    <li>@Html.ActionLink("Bilgilendirme", "Contact", "Home")</li>
+                    <li>
+                        <select>    
+
+                            @if (list != null)
+                            {
+                                foreach (aloacilusta.Controllers.HomeController.PatOBInfo item in list)
+                                {
+
+                                    <option value="@item.id.ToString()">@item.language.ToString()</option>
+
+                                }
+                            }
+                        </select>
+
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year -Alo Acil Usta Destek Hattı 0543 691 94 85</p>
+            <ul>  <li>@Html.ActionLink("Sıkça Sorulan Sorular", "Contact", "Home")</li></ul>
+        </footer>
+    </div>
+    <script src="~/Scripts/bootstrap.js"></script>
+
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/jquery-1.10.2.intellisense.js"></script>
+    <script src="~/Scripts/jquery-1.10.2.js"></script>
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+
+    <script src="~/Scripts/jquery.validate-vsdoc.js"></script>
+    <script src="~/Scripts/jquery.validate.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    <script src="~/Scripts/modernizr-2.6.2.js"></script>
+    <script src="~/Scripts/respond.js"></script>
+    <script src="~/Scripts/respond.min.js"></script>
+</body>
+</html>
